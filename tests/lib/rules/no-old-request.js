@@ -18,6 +18,23 @@ var rule = require("../../../lib/rules/no-old-request"),
 //------------------------------------------------------------------------------
 
 var ruleTester = new RuleTester();
+
+
+const testCode = `
+        request.default({
+            apiName: 'login',
+        })
+        request.defaultRequest.post('index/login', {
+            
+        })
+        request.get('index/login', {
+            
+        })
+
+        console.log(a, b, c);
+
+`
+
 ruleTester.run("no-old-request", rule, {
 
     valid: [
@@ -27,9 +44,9 @@ ruleTester.run("no-old-request", rule, {
 
     invalid: [
         {
-            code: "request.get",
+            code: testCode,
             errors: [{
-                message: "这是即将废弃的api，建议使用request.default",
+                message: "🤔这是不推荐的api，建议使用request.default",
             }]
         }
     ]

@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-daka-request",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "打卡助手的request eslint 插件",
   "keywords": [
     "eslint",
